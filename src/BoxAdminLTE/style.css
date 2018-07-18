@@ -1,0 +1,31 @@
+li {
+    list-style-type: none;
+}
+
+.btn-collapse-sign-wrapper {
+    margin-left: 10px;
+}
+
+.box-admin-lte .box-body {
+    display: block!important;
+    opacity: 1;
+    max-height: 800px;
+    transition: max-height 0.3s ease-out 0.05s, opacity 0.3s ease-out 0.05s, padding 0.3s ease-out 0.05s;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.box-admin-lte.collapsed-box .box-body {
+    max-height: 0;
+    opacity: 0;
+    display: block !important;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+
+}
+
+.box-admin-lte .box-header {
+    cursor: pointer;
+}
+

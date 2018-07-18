@@ -1,11 +1,11 @@
 {
-	"name": "sm-react-common-template",
-	"version": "1.0.2",
+	"name": "sm-react-common-uikit",
+	"version": "1.0.0",
 	"description": "Common frontend components for SM",
 	"main": "dist/index.js",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/magarampage/sm-react-common-template.git"
+		"url": "git+https://github.com/magarampage/sm-react-common-uikit.git"
 	},
 	"keywords": [
 		"react",
@@ -14,9 +14,9 @@
 	"author": "magarampage",
 	"license": "BSD-3-Clause",
 	"bugs": {
-		"url": "https://github.com/magarampage/sm-react-common-template/issues"
+		"url": "https://github.com/magarampage/sm-react-common-uikit/issues"
 	},
-	"homepage": "https://github.com/magarampage/sm-react-common-template#readme",
+	"homepage": "https://github.com/magarampage/sm-react-common-uikit#readme",
 	"peerDependencies": {
 		"prop-types": "^15.6.2",
 		"react": "^16.0.0",

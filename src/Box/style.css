@@ -1,0 +1,18 @@
+.simple-box .box-body.is-open {
+    display: block!important;
+    opacity: 1;
+    max-height: 800px;
+    transition: max-height 0.3s ease-out 0.05s, opacity 0.3s ease-out 0.05s, padding 0.3s ease-out 0.05s;
+    overflow-y: auto;
+}
+
+.simple-box .box-body.closed {
+    max-height: 0;
+    opacity: 0;
+    display: block !important;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    transition: max-height 0.3s ease-out 0.05s, opacity 0.3s ease-out 0.05s, padding 0.3s ease-out 0.05s;
+    overflow: hidden;
+}

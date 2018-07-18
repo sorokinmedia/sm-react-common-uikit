@@ -1,14 +1,17 @@
-import React, { Component } from 'react';
-import { render } from 'react-dom';
-import PropTypes from 'prop-types';
-import Alert from '../lib';
+import React, { Component } from 'react'
+import { render } from 'react-dom'
+import PropTypes from 'prop-types'
+import Box from '../src/Input'
 
 class App extends Component {
 
 	render() {
 		return (
 			<div>
-				<Alert showAlert="Error" />
+				<Box
+					onChange={() => console.log('onChange')}
+					value="sdf"
+				/>
 			</div>
 		)
 	}
@@ -17,4 +20,4 @@ class App extends Component {
 App.propTypes = {}
 App.defaultProps = {}
 
-render(<App />, document.getElementById('root'));
+render(<App />, document.getElementById('root'))
