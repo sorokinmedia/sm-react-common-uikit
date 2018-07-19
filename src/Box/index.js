@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import toggleOpen from '../decorators/toggleOpen';
 
-function Box(props) {
+export function Box(props) {
 	const isOpenClass = props.isOpen ? 'is-open' : 'closed';
 	return (
 		<div className={'simple-box box ' + props.boxClassName}>

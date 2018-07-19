@@ -1,73 +1,45 @@
 import { shallow, configure } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 import React from 'react'
-import Alert from './index'
+import { Box } from './index'
 
 configure({ adapter: new Adapter() })
-let spy
+const spy = jest.fn()
 
 function setup(customProps, lifeCycle = false) {
 	const props = {
+		isOpen: true,
 		...customProps
 	}
-	const container = shallow(<Alert {...props} />, { disableLifecycleMethods: lifeCycle })
+	const container = shallow(<Box {...props} />, { disableLifecycleMethods: lifeCycle })
 	return { container, props }
 }
 
-describe('Alert component', () => {
+describe('Box component', () => {
 
 	it('should render the component', () => {
 		const { container } = setup()
 		expect(container.exists()).toBe(true)
 	})
 
-	// it('should componentDidMount called', () => {
-	// 	jest.spyOn(Alert.prototype, 'componentDidMount');
-	// 	shallow(<Alert />)
-	// 	expect(Alert.prototype.componentDidMount).toHaveBeenCalled();
-	// 	Alert.prototype.componentDidMount.mockClear()
-	// });
-	//
-	//
-	// it('should show alert message', () => {
-	// 	const { container } = setup({ showAlert: 'error message' }, true)
-	// 	const instance = container.instance();
-	// 	spy = jest.spyOn(instance, 'showErrorAlert')
-	// 	instance.msg.show = jest.fn()
-	// 	instance.componentDidMount();
-	// 	expect(spy).toHaveBeenCalled();
-	// });
-	//
-	// it('should componentDidUpdate called', () => {
-	// 	const { container } = setup({})
-	// 	const instance = container.instance();
-	// 	instance.showErrorAlert = jest.fn(() => true)
-	// 	container.setProps({
-	// 		updateResponse: { error: 'Error message' },
-	// 		clearResponse: jest.fn()
-	// 	});
-	// 	expect(instance.componentDidUpdate).toHaveBeenCalled()
-	// });
-	//
-	// it('should the component has div with the required class', () => {
-	// 	expect(container.find('.modal-backdrop')).toBeTruthy()
-	// });
-	//
-	// it('should backdrop clicked once', () => {
-	// 	const instance = container.instance();
-	// 	const spy = jest
-	// 		.spyOn(instance, 'handleAreaClick')
-	// 		.mockImplementation(() => true)
-	// 	container.instance().forceUpdate()
-	// 	container.update()
-	// 	container.find('.modal-backdrop').simulate('click');
-	// 	expect(spy).toHaveBeenCalled()
-	// });
+	it('should have specified class', () => {
+		const { container } = setup({ boxClassName: 'boxClass' })
+		expect(container.first().props().className).toEqual('simple-box box boxClass')
+	})
 
-	// it('should have help block div with cancel button', () => {
-	// 	const { container } = setup()
-	// 	expect(container.exists('.comments-form')).toBe(true)
-	// 	expect(container.find('.help-block').text()).toEqual('Комментарий для john (Отменить)')
-	// 	expect(container.find('.help-block a').prop('onClick')()).toEqual('cancelReplyFunc')
-	// })
+	it('should have required className', () => {
+		const { container } = setup({ boxBodyClassName: 'bbcn' })
+		expect(container.find('.box-body').hasClass('is-open')).toEqual(true)
+		expect(container.find('.box-body').hasClass('bbcn')).toEqual(true)
+	})
+
+	it('should call togglOpen', () => {
+		const container = shallow(<Box
+			toggleOpen={spy}
+			canClosing
+			boxHeaderContent={{ a: '' }}
+		/>)
+		container.find('.box-header').simulate('click')
+		expect(spy).toHaveBeenCalled()
+	})
 })
