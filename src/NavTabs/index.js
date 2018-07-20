@@ -1,14 +1,13 @@
 import React, { Component, createRef } from 'react'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 import HeadTab from './HeadTab/index'
 import TabPane from './TabPane/index'
-import { scrollToByPos } from '../../../services/scrollToByName';
+import { scrollToByPos } from './scrollToByName'
 
 class NavTabs extends Component {
 
 	constructor(props) {
-		super(props);
+		super(props)
 
 		this.state = {
 			active: props.headTabs[0].key
@@ -17,15 +16,15 @@ class NavTabs extends Component {
 	}
 
 	componentDidMount() {
-		const self = this;
+
 		window.addEventListener('popstate', () => {
-			const { href } = location;
-			const key = href.slice(href.indexOf('#') + 1, href.length);
-			(self.handleNavTabClick(key))();
-			scrollToByPos(self.refTabs.offsetTop)
-		});
-		const { href } = location;
-		const key = href.slice(href.indexOf('#') + 1, href.length);
+			const { href } = location
+			const key = href.slice(href.indexOf('#') + 1, href.length)
+			this.handleNavTabClick(key)
+			scrollToByPos(this.refTabs.offsetTop)
+		})
+		const { href } = location
+		const key = href.slice(href.indexOf('#') + 1, href.length)
 		// eslint-disable-next-line react/no-did-mount-set-state
 		this.setState({
 			active: (href.indexOf('#') > 0 ? key : this.state.active)
@@ -36,26 +35,26 @@ class NavTabs extends Component {
 		window.removeEventListener('popstate')
 	}
 
-	handleNavTabClick = key => () => {
+	handleNavTabClick = (key) => {
 		this.setState({ active: key })
 	}
 
 	render() {
-		const { headTabs, tabPanes, className } = this.props;
-		const { active } = this.state;
+		const { headTabs, tabPanes, className } = this.props
+		const { active } = this.state
 		const headView = headTabs.map(elem => (
 			<HeadTab
 				aHref={`#${elem.key}`}
 				tabName={elem.title}
-				handleTabClick={this.handleNavTabClick(elem.key)}
+				handleTabClick={() => this.handleNavTabClick(elem.key)}
 				isActive={elem.key === active}
 				key={elem.key}
 				tabClass=" "
-			/>));
+			/>))
 		const contentView = (
 			<TabPane
 				content={tabPanes.find(elem => elem.key === active).content}
-			/>);
+			/>)
 
 		return (
 			<div className={`nav-tabs-custom ${className}`}>
@@ -87,10 +86,10 @@ NavTabs.propTypes = {
 		])
 	})),
 	className: PropTypes.string
-};
+}
 
 NavTabs.defaultProps = {
-	className: '',
-};
+	className: ''
+}
 
-export default connect(state => ({}), {})(NavTabs)
+export default NavTabs
