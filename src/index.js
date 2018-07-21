@@ -1,3 +1,4 @@
+/* eslint-disable import/no-named-as-default */
 export Box from './Box'
 export BoxAdminLTE from './BoxAdminLTE'
 export Error from './Error'
@@ -7,6 +8,6 @@ export List from './List'
 export NavTabs from './NavTabs'
 export OrderLink from './OrderLink'
 export Plane from './Plane'
-export WrappedSpoiler from './Spoiler'
+export Spoiler from './Spoiler'
 export TableAdminLTE from './TableAdminLTE'
 export TimeLineList from './TimeLineList'
