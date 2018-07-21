@@ -1,3 +1,4 @@
+/* eslint-disable import/no-named-as-default */
 import Box from './Box'
 import BoxAdminLTE from './BoxAdminLTE'
 import Clearfix from './Clearfix'
@@ -12,6 +13,7 @@ import Plane from './Plane'
 import Spoiler from './Spoiler'
 import TableAdminLTE from './TableAdminLTE'
 import TimeLineList from './TimeLineList'
+import TimeLineItem from './TimeLineItem'
 
 jest.mock('./Box', () => {})
 jest.mock('./BoxAdminLTE', () => {})
@@ -25,6 +27,7 @@ jest.mock('./Plane', () => {})
 jest.mock('./Spoiler', () => {})
 jest.mock('./TableAdminLTE', () => {})
 jest.mock('./TimeLineList', () => {})
+jest.mock('./TimeLineItem', () => {})
 
 describe('expots', () => {
 	it('should exports components', () => {
@@ -40,6 +43,7 @@ describe('expots', () => {
 			Plane,
 			Spoiler,
 			TableAdminLTE,
+			TimeLineItem,
 			TimeLineList
 		}))
 	})
