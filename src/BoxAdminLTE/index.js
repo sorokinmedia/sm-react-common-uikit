@@ -8,7 +8,7 @@ class BoxAdminLTE extends Component {
 
 	static propTypes = {
 		title: PropTypes.string,
-		handleBoxTuggle: PropTypes.func,
+		handleBoxToggle: PropTypes.func,
 		header: PropTypes.object,
 		body: PropTypes.object,
 		sign: PropTypes.string,
@@ -26,28 +26,28 @@ class BoxAdminLTE extends Component {
 		super(props);
 
 		this.state = {
-			callapsed: props.isCollapsed
+			collapsed: props.isCollapsed
 		}
 	}
 
-	handleBoxTuggle = () => {
-		this.setState({ callapsed: !this.state.callapsed });
+	handleBoxToggle = () => {
+		this.setState({ collapsed: !this.state.collapsed });
 
 		const { onToggle } = this.props;
-		if (onToggle) onToggle(!this.state.callapsed)
+		if (onToggle) onToggle(!this.state.collapsed)
 	}
 
 	render() {
 		const { title, body, link, className, pullRight, header } = this.props;
-		const callapsed = this.state.callapsed ? 'collapsed-box' : '';
-		const sign = callapsed ? 'plus' : 'minus';
+		const collapsed = this.state.collapsed ? 'collapsed-box' : '';
+		const sign = collapsed ? 'plus' : 'minus';
 		const wrapClassName = className ? className : '';
 
 		return (
-			<div className={'box-admin-lte box box-solid ' + wrapClassName + ' ' + callapsed}>
+			<div className={'box-admin-lte box box-solid ' + wrapClassName + ' ' + collapsed}>
 				<BoxHeader
 					title={title}
-					handleBoxTuggle={this.handleBoxTuggle}
+					handleBoxToggle={this.handleBoxToggle}
 					sign={sign}
 					pullRight={pullRight}
 					header={header}

@@ -46,7 +46,7 @@ describe('NavTabs component', () => {
 		})
 	})
 
-	it('should call handleNavTabClick', () => {
+	it('should call componentDidMount', () => {
 
 		const headTabs = [
 			{ title: 'first', key: 'keyfirst' },
@@ -61,7 +61,6 @@ describe('NavTabs component', () => {
 		spy = jest.spyOn(NavTabs.prototype, 'componentDidMount')
 		const { container } = setup()
 		expect(NavTabs.prototype.componentDidMount).toHaveBeenCalled()
-		NavTabs.prototype.componentDidMount.mockClear()
 	})
 
 })
