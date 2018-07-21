@@ -9,7 +9,7 @@ import List from './List'
 import NavTabs from './NavTabs'
 import OrderLink from './OrderLink'
 import Plane from './Plane'
-import WrappedSpoiler from './Spoiler'
+import Spoiler from './Spoiler'
 import TableAdminLTE from './TableAdminLTE'
 import TimeLineList from './TimeLineList'
 
@@ -38,7 +38,7 @@ describe('expots', () => {
 			NavTabs,
 			OrderLink,
 			Plane,
-			WrappedSpoiler,
+			Spoiler,
 			TableAdminLTE,
 			TimeLineList
 		}))
