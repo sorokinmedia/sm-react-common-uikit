@@ -54,6 +54,4 @@ OrderLink.defaultProps = {
 	showOrder: false
 }
 
-OrderLink.displayName === 'OrderLink'
-
 export default OrderLink

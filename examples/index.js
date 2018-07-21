@@ -1,16 +1,15 @@
 import React, { Component } from 'react'
 import { render } from 'react-dom'
 import PropTypes from 'prop-types'
-import Box from '../src/Input'
+import OrderLink from '../src/OrderLink'
 
 class App extends Component {
 
 	render() {
 		return (
 			<div>
-				<Box
-					onChange={() => console.log('onChange')}
-					value="sdf"
+				<OrderLink
+
 				/>
 			</div>
 		)
