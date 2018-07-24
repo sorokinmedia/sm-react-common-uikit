@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import toggleOpen from '../decorators/toggleOpen'
+import { scrollToById } from '../NavTabs/scrollToByName'
 
 export class Spoiler extends Component {
 
@@ -12,6 +13,11 @@ export class Spoiler extends Component {
 		const { onToggle } = this.props
 		if (onToggle) onToggle(this.props.isOpen)
 		this.props.toggleOpen()
+		if (this.props.focus) {
+			setTimeout(() => {
+				scrollToById(this.props.focus)
+			}, 200)
+		}
 	}
 
 	render() {
@@ -36,6 +42,7 @@ Spoiler.propTypes = {
 		PropTypes.number
 	]),
 	tag: PropTypes.string,
+	focus: PropTypes.string,
 	onToggle: PropTypes.func,
 	toggleOpen: PropTypes.func,
 	children: PropTypes.node,

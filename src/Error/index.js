@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-function Index(props) {
+function Error(props) {
 	const { text, className } = props
 
 	return (
@@ -11,10 +11,10 @@ function Index(props) {
 		</div>)
 }
 
-Index.propTypes = {
+Error.propTypes = {
 	className: PropTypes.string,
 	text: PropTypes.string
 }
-Index.defaultProps = {}
+Error.defaultProps = {}
 
-export default Index
+export default Error
