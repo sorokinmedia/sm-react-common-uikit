@@ -1,8 +1,8 @@
-import React, { Component, createRef } from 'react'
 import PropTypes from 'prop-types'
+import React, { Component, createRef } from 'react'
 import HeadTab from './HeadTab/index'
-import TabPane from './TabPane/index'
 import { scrollToByPos } from './scrollToByName'
+import TabPane from './TabPane/index'
 
 class NavTabs extends Component {
 
@@ -22,7 +22,8 @@ class NavTabs extends Component {
 			return this.setState({
 				active: (href.indexOf('#') > 0 && key.length ? key : this.state.active)
 			})
-			//	scrollToByPos(this.refTabs.offsetTop)
+			// eslint-disable-next-line no-unreachable
+			scrollToByPos(this.refTabs.offsetTop)
 		})
 		const { href } = location
 		const key = href.slice(href.indexOf('#') + 1, href.length)
