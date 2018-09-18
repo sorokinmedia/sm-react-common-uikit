@@ -16,18 +16,19 @@ class NavTabs extends Component {
 	}
 
 	componentDidMount() {
-
 		window.addEventListener('popstate', () => {
 			const { href } = location
 			const key = href.slice(href.indexOf('#') + 1, href.length)
-			this.handleNavTabClick(key)
-			scrollToByPos(this.refTabs.offsetTop)
+			return this.setState({
+				active: (href.indexOf('#') > 0 && key.length ? key : this.state.active)
+			})
+			//	scrollToByPos(this.refTabs.offsetTop)
 		})
 		const { href } = location
 		const key = href.slice(href.indexOf('#') + 1, href.length)
 		// eslint-disable-next-line react/no-did-mount-set-state
 		this.setState({
-			active: (href.indexOf('#') > 0 ? key : this.state.active)
+			active: (href.indexOf('#') > 0 && key.length ? key : this.state.active)
 		})
 	}
 
